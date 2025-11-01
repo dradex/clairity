@@ -1,0 +1,1405 @@
+:root {
+    --accent-color: rgb(76, 175, 229);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html, body {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 200;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+a {
+  color: inherit; 
+  text-decoration: inherit;
+}
+
+b {
+    font-weight: 600;
+}
+
+p {
+    color: #FFF;
+    font-family: "JetBrains Mono";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 170%; /* 47.6px */
+    letter-spacing: -5%;
+}
+section {
+    height: 100vh;                  /* each section fills screen height */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+}
+
+
+
+.bg-one {
+  position: relative;
+  overflow: hidden; /* ensures pseudo-element stays inside */
+}
+
+.bg-one::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("attached_assets/BG213.png");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(70%);
+  z-index: 0;
+}
+
+.bg-one > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+.bg-two {
+  position: relative;
+  overflow: hidden; /* ensures pseudo-element stays inside */
+}
+
+.bg-two::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("attached_assets/fdram42.png");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(70%);
+  z-index: 0;
+}
+
+.bg-two > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+.bg-three {
+  position: relative;
+  overflow: hidden; /* ensures pseudo-element stays inside */
+}
+
+.bg-three::before {
+  content: "";
+  position: absolute;
+  inset: 0;                                                                 
+  background-image: url("attached_assets/bgthree.png");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(70%);
+  z-index: 0;
+}
+
+.bg-three > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+.bg-four {
+  position: relative;
+  overflow: hidden; /* ensures pseudo-element stays inside */
+}
+
+.bg-four::before {
+  content: "";
+  position: absolute;
+  inset: 0;                                                                 
+  background-color: #F0EFF5;
+  z-index: 0;
+}
+
+.bg-four > * {
+  position: relative;
+  z-index: 1;
+}
+
+.bg-four-blob {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* size scales with viewport but stays reasonable */
+  width: clamp(180px, 22vw, 360px);
+  height: clamp(180px, 22vw, 360px);
+  background: var(--accent-color);
+  opacity: 0.65;
+  filter: blur(60px);
+  /* JS controls position via translate(px, px) */
+  transform: translate(0, 0);
+  /* organic shape; will be animated */
+  border-radius: 36% 64% 45% 55% / 52% 34% 66% 48%;
+  pointer-events: none;
+  z-index: 0; /* under the grid, above bg-four::before */
+  will-change: transform, border-radius;
+  animation: blob-morph 20s ease-in-out infinite alternate, blob-wobble 12s ease-in-out infinite alternate;
+}
+
+@keyframes blob-morph {
+  0%   { border-radius: 36% 64% 45% 55% / 52% 34% 66% 48%; }
+  25%  { border-radius: 42% 58% 40% 60% / 47% 39% 61% 53%; }
+  50%  { border-radius: 55% 45% 58% 42% / 40% 62% 38% 60%; }
+  75%  { border-radius: 47% 53% 40% 60% / 58% 37% 63% 42%; }
+  100% { border-radius: 36% 64% 45% 55% / 52% 34% 66% 48%; }
+}
+
+@keyframes blob-wobble {
+  0%   { box-shadow: 0 0 40px rgba(76,175,229,0.35); }
+  100% { box-shadow: 0 0 65px rgba(76,175,229,0.55); }
+}
+
+.bg-four-grid {
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: difference;
+    background-image: url("attached_assets/gridbgfour.png");
+    background-size: cover; /* Cover the entire element */
+    background-repeat: no-repeat; /* Prevent tiling */
+    background-position: center;
+}
+
+
+.topbar {
+    mix-blend-mode: difference;
+    position: fixed;     /* sticks to top */
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 80px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    font-weight: 200;
+    color: white;
+    font-size: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: -0.05em;
+    padding: 0 20px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    z-index: 1000;       /* keep it above everything else */
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    flex: 1; 
+    gap: 20px;
+    mix-blend-mode: difference;
+}
+
+/* Normalize nav text sizing across all pages */
+.nav-links, .nav-links a, .nav-links div {
+    font-size: 20px;
+    font-weight: 200;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.nav-links div {
+    transition: 0.1s ease-in;
+}
+
+.nav-links div:hover {
+    filter: brightness(75%);
+    transform: scale(1.05)  rotate(-1deg);
+}
+
+.nav-links div:active {
+    transform: scale(0.95);
+    filter: brightness(30%);
+}
+
+.topbar img {
+    width: 100px;
+    margin-left: auto; /* pushes image to far right */
+}
+.hero-text {
+    position: absolute;      /* pin it inside bg-one */
+    top: 200px;              /* vertical offset from top */
+    right: 125px;            /* exact spacing from right edge */
+    width: 981px;
+    max-width: calc(100% - 125px); /* prevents overflow on small screens */
+    text-align: right;
+}
+
+.hero-text h1 {
+    color: #FFF;
+    text-align: right;
+    font-family: "JetBrains Mono";
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 170%; 
+    letter-spacing: -5%;
+}
+
+.hero-text p {
+    margin-top: 20px;
+    color: #FFF;
+    text-align: right;
+    font-family: "JetBrains Mono";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 170%; /* 54.4px */
+    letter-spacing: -5%;
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 41px;
+
+    margin-top: 120px;
+    justify-content: flex-end; 
+    align-items: flex-end;
+    bottom: 0px;
+    width: 100%;
+    height: 181px;
+}
+
+.buttons-container button {
+    transition: transform 0.1s ease, opacity 0.1s ease;
+    outline: none;
+    border-radius: 0;
+    font-family: "JetBrains Mono";
+    font-size: 24px;
+    right: 0px;
+    width: 340px;
+    height: 70px;
+    letter-spacing: -5%;
+}
+
+.demo-button {
+    width: 340px;
+    outline: none;
+    height: 70px;
+    font-family: "JetBrains Mono";
+    font-size: 24px;
+    border-radius: 0;
+    right: 0px;
+    background-color: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 20.6px 4px rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #2DD36F;
+    font-weight: 600;
+}
+
+.features-button {
+    border-radius: 0;
+    background-color: rgba(255, 255, 255, 1);
+    border: none;
+    outline: none;
+    backdrop-filter: blur(10px);
+    color: #000;
+    font-weight: 200;
+}
+
+.buttons-container button:hover {
+    transform: scale(1.05)  rotate(-1deg);
+    filter: brightness(75%);
+}
+
+.buttons-container button:active{
+    transform: scale(0.95);
+    filter: brightness(30%);
+}
+
+.left-bg-two-text {
+    color: #FFF;
+    font-family: "JetBrains Mono";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 170%; /* 47.6px */
+    letter-spacing: -5%;
+    width: 746.25px;
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 52.25px;
+    text-align: left;
+
+    /* Smooth slide-in on scroll (controlled via .will-reveal/.visible classes) */
+    transition: transform 600ms ease, opacity 600ms ease;
+    will-change: transform, opacity;
+}
+
+/* Hidden pre-reveal state; added by JS so content is visible if JS fails */
+.left-bg-two-text.will-reveal {
+    transform: translateX(-48px);
+    opacity: 0;
+}
+
+.middle-bg-two-text.will-reveal {
+    transform: translateX(-1000px);
+    opacity: 0;
+}
+
+.right-bg-two-text.will-reveal {
+    transform: translateX(500px);
+    opacity: 0;
+}
+
+.middle-bg-two-text {
+    color: #FFF;
+    font-family: "JetBrains Mono";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 170%; /* 47.6px */
+    letter-spacing: -5%;
+    width: 650px;
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    justify-content: center;
+    top: 50%;
+    left: 48%;
+    text-align: left;
+
+   
+    /* Smooth slide-in on scroll (triggered via .visible class) */
+    transition: transform 600ms ease, opacity 600ms ease;
+    will-change: transform, opacity;
+}
+
+.right-bg-two-text {
+    color: #FFF;
+    font-family: "JetBrains Mono";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 170%; /* 47.6px */
+    letter-spacing: -5%;
+    width: 500px;
+    gap: 50px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 61px;
+    right: 35px;
+    text-align: right;
+    align-items: flex-end;
+    
+    /* Smooth slide-in on scroll (triggered via .visible class) */
+    transition: transform 600ms ease, opacity 600ms ease;
+    will-change: transform, opacity;
+}
+.right-bg-two-text a {
+    transition: transform 0.1s ease, opacity 0.1s ease;
+}
+
+.right-bg-two-text a:hover {
+    transform: scale(1.05)  rotate(-1deg);
+    filter: brightness(75%);
+}
+
+.right-bg-two-text a:active{
+    transform: scale(0.95);
+    filter: brightness(30%);
+}
+
+
+.left-bg-three-text {
+    color: #FFF;
+    font-family: "JetBrains Mono";
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 170%; /* 47.6px */
+    letter-spacing: -5%;
+    width: 492px;
+    gap: 50px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 92px;
+    right: 50vw;
+    text-align: right;
+    align-items: flex-end;
+    
+    /* Smooth slide-in on scroll (triggered via .visible class) */
+    transform: translateX(-500px);
+    opacity: 0;
+    transition: transform 600ms ease, opacity 600ms ease;
+}
+
+
+.right-bg-three-text {
+    color: #FFF;
+    font-family: "JetBrains Mono";
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 170%; /* 47.6px */
+    letter-spacing: -5%;
+    width: 492px;
+    gap: 50px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 92px;
+    right: 58px;
+    text-align: right;
+    align-items: flex-end;
+    
+    /* Smooth slide-in on scroll (triggered via .visible class) */
+    transform: translateX(500px);
+    opacity: 0;
+    transition: transform 600ms ease, opacity 600ms ease;
+}
+
+.bg-four-areas {
+    display: grid;
+    grid-template-areas:
+    "pm business business"
+    "pm schools healthcare";
+    grid-template-columns: 0.75fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    pointer-events: none; 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding: 50px;
+    gap: 40px;
+}
+
+
+
+
+.business { grid-area: business;}
+.schools { grid-area: schools; }
+.healthcare { grid-area: healthcare; }
+.pm {
+    grid-area: pm;
+    grid-row: 1 / span 2; /* makes it take both rows */
+}
+
+
+
+.pm {
+    display: flex;
+    align-items: center;
+    background-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 100%), url("attached_assets/propertymanagersbgfour.png");
+    background-size: 100% 100%, cover;           /* gradient fills box, image crops */
+    background-position: center, center;         /* center both layers */
+    background-repeat: no-repeat, no-repeat;     /* no tiling */
+    box-sizing: border-box; 
+    border: 4px solid black;
+    position: relative;
+    box-shadow: 0 8px 4px 0 rgba(0, 0, 0, 0.50);
+    pointer-events: auto;
+}
+
+
+.business {
+    display: flex;
+    align-items: center;
+    background-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 100%), url("attached_assets/offices.png");
+    background-size: 100% 100%, cover;           /* gradient fills box, image crops */
+    background-position: center, center;         /* center both layers */
+    background-repeat: no-repeat, no-repeat;     /* no tiling */
+    box-sizing: border-box; 
+    border: 4px solid black;
+    position: relative;
+    box-shadow: 0 8px 4px 0 rgba(0, 0, 0, 0.50);
+    pointer-events: auto;
+}
+
+
+.healthcare {
+    display: flex;
+    align-items: center;
+    background-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 100%), url("attached_assets/healthcare.png");
+    background-size: 100% 100%, cover;           /* gradient fills box, image crops */
+    background-position: center, center;         /* center both layers */
+    background-repeat: no-repeat, no-repeat;     /* no tiling */
+    box-sizing: border-box; 
+    border: 4px solid black;
+    position: relative;
+    box-shadow: 0 8px 4px 0 rgba(0, 0, 0, 0.50);
+    pointer-events: auto;
+}
+
+
+.schools {
+    display: flex;
+    align-items: center;
+    background-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 100%), url("attached_assets/schools.png");
+    background-size: 100% 100%, cover;           /* gradient fills box, image crops */
+    background-position: center, center;         /* center both layers */
+    background-repeat: no-repeat, no-repeat;     /* no tiling */
+    box-sizing: border-box; 
+    border: 4px solid black;
+    position: relative;
+    left: 0;
+    top: 0;
+    box-shadow: 0 8px 4px 0 rgba(0, 0, 0, 0.50);
+    pointer-events: auto;
+}
+
+
+
+/* Radial vignette overlay: transparent center → dark edges */
+.bg-four-property-managers-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1; /* above the background image, below any children */
+    background: radial-gradient(
+        circle at 50% 50%,
+        rgba(0,0,0,0) 0%,
+        rgba(0,0,0,0.9) 100%
+    );
+}
+
+/* Disable the pseudo-element overlay; the vignette is now part of background layers */
+.bg-four-property-managers-bg::after {
+    content: none !important;
+    background: none !important;
+}
+
+.bg-four-pm-blur {
+    height: 40%;
+    width: 100%;
+    backdrop-filter: blur(20px);
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: center;   /* center vertically (main axis) */
+    align-items: flex-end;     /* align to the right horizontally */
+    padding-right: 46px;       /* match previous right offset */
+}
+
+.bg-four-pm-blur p {
+    text-align: right;
+    font-size: 30px;
+}
+
+.bg-four-pm-blur button {
+    transition: 0.1s ease;
+    padding: 0 23px;
+    text-align: right;
+    height: 50px;
+    background: var(--accent-color);
+    outline: none;
+    border: none;                 /* remove default UA border */
+    -webkit-appearance: none;     /* remove native button styling (Safari/iOS) */
+    appearance: none;
+    box-shadow: none;             /* ensure no default shadows look like borders */
+    border-radius: 0;
+    color: #FFF;
+    font-family: "JetBrains Mono";
+    font-size: 22px;
+    letter-spacing: -5%;
+    display: inline-flex;
+    align-items: center;     /* vertical centering */
+    justify-content: right; 
+
+}
+.bg-four-pm-blur button:hover {
+    transform: scale(1.05)  rotate(-1deg);
+    filter: brightness(75%);
+}
+
+.bg-four-pm-blur button:active {
+    transform: scale(0.95);
+    filter: brightness(30%);
+}
+
+
+
+.bg-four-pm-blur button:focus,
+.bg-four-pm-blur button:focus-visible,
+.bg-four-pm-blur button:active {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+
+/* Applied when element enters viewport (via IntersectionObserver) */
+.left-bg-two-text.visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.left-bg-three-text.visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.middle-bg-two-text.visible {
+    transform: translateX(-300px);
+    opacity: 1;
+}
+
+.right-bg-two-text.visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.right-bg-three-text.visible {
+    transform: translateX(0px);
+    opacity: 1;
+}
+
+
+.bg-four-businesses-bg {
+    box-shadow: 0 8px 4px 0 rgba(0, 0, 0, 0.50);
+    pointer-events: auto;      
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* push content (blur panel) to the right */
+    position: relative;
+    left: -2px;
+    width: 101.5%;
+    height: 440px;
+    border: 2px solid black;
+    background-repeat: no-repeat; 
+    background-position: center center, center -240px;
+    background-size: cover; 
+    /* soften vignette so it doesn't look like a harsh half-black overlay */
+    background-image: 
+    radial-gradient(
+        circle at 50% 50%, 
+        rgba(0,0,0,0) 0%, 
+        rgba(0,0,0,0.7) 100%
+    )   
+    ,url("attached_assets/offices.png");
+}
+
+
+.bg-four-bo-blur {
+    position: relative;
+    right: 0px;
+    margin-left: auto;            /* align this panel to the right in its flex parent */
+    height: 86%;
+    width: 561px;
+    backdrop-filter: blur(20px);
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: center;                                                                                  /* center vertically (main axis) */
+    align-items: flex-end;     /* align to the right horizontally */
+    padding-top: 120px;
+    padding-right: 46px;       /* match previous right offset */
+}
+
+.bg-four-bo-blur p {
+    text-align: right;
+    font-size: 30px;
+}
+
+.bg-four-bo-blur button {
+    transition: 0.1s ease;
+    padding: 0 23px;
+    text-align: right;
+    width: 300px;
+    height: 50px;
+    background: var(--accent-color);
+    outline: none;
+    border: none;                 /* remove default UA border */
+    -webkit-appearance: none;     /* remove native button styling (Safari/iOS) */
+    appearance: none;
+    box-shadow: none;             /* ensure no default shadows look like borders */
+    border-radius: 0;
+    color: #FFF;
+    font-family: "JetBrains Mono";
+    font-size: 22px;
+    letter-spacing: -5%;
+    display: inline-flex;
+    align-items: center;     /* vertical centering */
+    justify-content: right; 
+
+}
+
+.bg-four-bo-blur button:hover {
+    transform: scale(1.05)  rotate(-1deg);
+    filter: brightness(75%);
+}
+
+.bg-four-bo-blur button:active {
+    transform: scale(0.95);
+    filter: brightness(30%);
+}       
+
+
+
+.bg-four-bo-blur button:focus,
+.bg-four-bo-blur button:focus-visible,
+.bg-four-bo-blur button:active {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+
+
+.bg-four-schools-bg {
+    box-shadow: 0 8px 4px 0 rgba(0, 0, 0, 0.50);
+    pointer-events: auto;      
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    position: relative;
+    bottom: -60px;
+    left: -2px;
+    width: 543px;
+    height: 410px;
+    border: 2px solid black;
+    background-repeat: no-repeat; 
+    background-position: center center;
+    background-size: cover; 
+    
+    background-image: 
+    radial-gradient(
+        circle at 50% 50%, 
+        rgba(0,0,0,0) 0%, 
+        rgba(0,0,0,0.7) 100%
+    )   
+    ,url("attached_assets/schools.png");
+}
+
+
+.bg-four-schools-blur {
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;    
+    height: 86%;
+    width: 350px;
+    bottom: 0px;
+    backdrop-filter: blur(20px);
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: center;                                                                             
+    align-items: flex-end;  
+    padding-top: 120px;
+    padding-right: 25px;    
+}
+
+.bg-four-schools-blur p {
+    text-align: right;
+    font-size: 30px;
+}
+
+.bg-four-schools-blur button {
+    transition: 0.1s ease;
+    padding: 0 23px;
+    text-align: right;
+    width: 300px;
+    height: 50px;
+    background: var(--accent-color);
+    outline: none;
+    border: none;               
+    -webkit-appearance: none;   
+    appearance: none;
+    box-shadow: none;            
+    border-radius: 0;
+    color: #FFF;
+    font-family: "JetBrains Mono";
+    font-size: 22px;
+    letter-spacing: -5%;
+    display: inline-flex;
+    align-items: center;  
+    justify-content: right; 
+
+}
+
+.bg-four-schools-blur button:hover {
+    transform: scale(1.05)  rotate(-1deg);
+    filter: brightness(75%);
+}
+
+.bg-four-schools-blur button:active {
+    transform: scale(0.95);
+    filter: brightness(30%);
+}       
+
+
+
+.bg-four-schools-blur button:focus,
+.bg-four-schools-blur button:focus-visible,
+.bg-four-schools-blur button:active {
+    outline: none;
+    border: none;
+    box-shadow: none;
+} 
+
+
+
+
+
+.bg-four-health-bg {
+    box-shadow: 0 8px 4px 0 rgba(0, 0, 0, 0.50);
+    pointer-events: auto;      
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    position: relative;
+    bottom: 350px;
+    right: -610px;
+    width: 580px;
+    height: 410px;
+    border: 2px solid black;
+    background-repeat: no-repeat; 
+    background-position: center center;
+    background-size: cover; 
+    
+    background-image: 
+    radial-gradient(
+        circle at 50% 50%, 
+        rgba(0,0,0,0) 0%, 
+        rgba(0,0,0,0.7) 100%
+    )   
+    ,url("attached_assets/healthcare.png");
+}
+
+
+.bg-four-health-blur {
+    position: relative;
+    margin-right: auto;
+    margin-left: auto;    
+    height: 86%;
+    width: 350px;
+    bottom: 0px;
+    backdrop-filter: blur(20px);
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: center;                                                                             
+    align-items: flex-end;  
+    padding-top: 120px;
+    padding-right: 25px;    
+}
+
+.bg-four-health-blur p {
+    text-align: right;
+    font-size: 30px;
+}
+
+.bg-four-health-blur button {
+    transition: 0.1s ease;
+    padding: 0 23px;
+    text-align: right;
+    width: 300px;
+    height: 50px;
+    background: var(--accent-color);
+    outline: none;
+    border: none;               
+    -webkit-appearance: none;   
+    appearance: none;
+    box-shadow: none;            
+    border-radius: 0;
+    color: #FFF;
+    font-family: "JetBrains Mono";
+    font-size: 22px;
+    letter-spacing: -5%;
+    display: inline-flex;
+    align-items: center;  
+    justify-content: right; 
+
+}
+
+.bg-four-health-blur button:hover {
+    transform: scale(1.05)  rotate(-1deg);
+    filter: brightness(75%);
+}
+
+.bg-four-health-blur button:active {
+    transform: scale(0.95);
+    filter: brightness(30%);
+}       
+
+
+
+.bg-four-health-blur button:focus,
+.bg-four-health-blur button:focus-visible,
+.bg-four-health-blur button:active {
+    outline: none;
+    border: none;
+    box-shadow: none;
+} 
+
+
+
+.bg-five {
+  position: relative;
+  overflow: hidden; /* ensures pseudo-element stays inside */
+}
+
+.bg-five::before {
+  content: "";
+  position: absolute;
+  inset: 0;                                                                 
+  background-image: url("attached_assets/bgfive.png");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(70%);
+  z-index: 0;
+}
+
+.bg-five > * {
+  position: relative;
+  z-index: 1;
+}
+
+.bg-five-text {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+    grid-template-rows: 1fr 1fr; /* Two equal-height rows */
+    gap: 10px; /* Optional: adds space between grid items */
+    width: 100%; /* Optional: set a fixed width for the container */
+    height: 100%; /* Optional: set a fixed height for the container */
+    border: 1px solid #ccc; /* Optional: for visualization */
+}
+
+.bg-five-text div {
+    transition: transform 600ms ease;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: right;
+
+    transform: translateX(500px);
+    opacity: 0;
+}
+
+.bg-five-text div.bg5fromleft {
+
+    transform: translateX(-500px);
+}
+
+.bg-five-text div.visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+
+.bg-five-text div p {
+    width: 700px;
+    text-align: right;
+
+    
+}
+
+
+
+.bg-five-text div p b {
+    font-weight: 400;
+}
+
+
+
+
+
+.bg-six {
+  position: relative;
+  overflow: hidden; /* ensures pseudo-element stays inside */
+}
+
+.bg-six::before {
+  content: "";
+  position: absolute;
+  inset: 0;                                                                 
+  background-color: #F0EFF5;
+  z-index: 0;
+}
+
+.bg-six > * {
+  position: relative;
+  z-index: 1;
+}
+
+.bg-six-blob {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* size scales with viewport but stays reasonable */
+  width: clamp(180px, 22vw, 360px);
+  height: clamp(180px, 22vw, 360px);
+  background: var(--accent-color);
+  opacity: 0.65;
+  filter: blur(60px);
+  /* JS controls position via translate(px, px) */
+  transform: translate(0, 0);
+  /* organic shape; will be animated */
+  border-radius: 36% 64% 45% 55% / 52% 34% 66% 48%;
+  pointer-events: none;
+  z-index: 0; /* under the grid, above bg-four::before */
+  will-change: transform, border-radius;
+  animation: blob-morph 20s ease-in-out infinite alternate, blob-wobble 12s ease-in-out infinite alternate;
+}
+.bg-six-title {
+    position: absolute;
+    top: 60px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 120px;
+}
+.bg-six-title p{
+    width: 100%;
+    color: black;
+    text-align: center;
+    margin: 0 auto;
+    left: 0px;
+    height: 40px;
+}
+.bg-six-center-pricing {
+    position: absolute;
+    top: 244px;
+    margin: 0 auto;
+    display: flex;
+    gap: 156px;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 552px;
+
+}
+.bg-six-one {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    border: 2px solid rgba(0,0,0,0.3);
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.4);
+    width: 381px;
+    height: 100%;
+    align-content: center;
+    justify-content: center;
+}
+.bg-six-monthly {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    outline: 2px solid #2DD36F;
+    border: 2px solid rgba(0,0,0,0.3);
+    outline-offset: 10px;
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.4);
+    width: 381px;
+    height: 100%;
+    align-content: center;
+    justify-content: center;
+}
+
+.bg-six-monthly #most-popular{
+    color: #2DD36F;
+    text-align: center;
+    margin: 0 auto;
+    transform: translateY(-522px);
+}
+
+.bg-six-center-pricing p{
+    width: 300px;
+    margin-left: 60px;
+    color: black;
+    font-family: "JetBrains Mono";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 170%; /* 47.6px */
+    letter-spacing: -8%;
+}
+
+.bg-six-center-pricing ul{
+    width: 300px;
+    margin-left: 60px;
+    color: black;
+    font-family: "JetBrains Mono";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 170%; /* 47.6px */
+    letter-spacing: -8%;
+}
+
+.bg-six-buttons {
+    position: absolute;
+    bottom: 70px;
+    margin: 0 auto;
+    gap: 33px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 170px;
+}
+
+.bg-six-buttons button,  .bg-six-buttons a{
+    transition: 0.1s ease;
+    
+    margin: 0 auto;
+   
+    width: 340px;
+    height: 70px;
+
+    outline: none;
+    border: none;               
+    -webkit-appearance: none;   
+    appearance: none;
+    box-shadow: none; 
+
+    font-family: "JetBrains Mono";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 170%; /* 47.6px */
+    letter-spacing: -8%;
+}
+
+.bg-six-buttons button:focus,
+.bg-six-buttons button:focus-visible,
+.bg-six-buttons button:active {
+    outline: none;
+} 
+
+.bg-six-buttons button:hover {
+    transform: scale(1.05)  rotate(-1deg);
+    filter: brightness(75%);
+}
+
+.bg-six-buttons button:active{
+    transform: scale(0.95);
+    filter: brightness(30%);
+}
+
+.bg-six-buttons .bg-six-bp {
+    color: white;
+    background-color: var(--accent-color);
+}
+
+.bg-six-buttons .bg-six-bd {
+    color: #2DD36F;
+    background-color: white;
+    border: 2px solid #2DD36F;
+    box-shadow: 0 0 20px 0 rgba(45, 211, 111, 0.7);
+}
+
+.bg-seven {
+  position: relative;
+  overflow: hidden; /* ensures pseudo-element stays inside */
+}
+
+.bg-seven::before {
+  content: "";
+  position: absolute;
+  inset: 0;                                                                 
+  background-image: url("attached_assets/bg-seven.png");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(70%);
+  z-index: 0;
+}
+
+.bg-seven > * {
+  position: relative;
+  z-index: 1;
+}
+
+.bg-seven-center {
+    transition: transform 600ms ease;
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 30px;
+
+    transform: translateY(-500px);
+    opacity: 0;
+}
+
+.bg-seven-center.visible {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.bg-seven-center p {
+    text-align: center;
+}
+.bg-seven-center a {
+    transition: 0.1s ease;
+    text-align: center;
+    line-height: 66px;
+    outline: none;
+    border: none;               
+    -webkit-appearance: none;   
+    appearance: none;
+    box-shadow: none; 
+
+    font-family: "JetBrains Mono";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+  
+    letter-spacing: -8%;
+
+
+    width: 340px;
+    height: 70px;
+    margin: 0 auto;
+    background-color: transparent;
+
+    color: #2DD36F;
+    border: 2px solid #2DD36F;
+    box-shadow: 0 0 20px 0 rgba(45, 211, 111, 0.25);
+}
+
+.bg-seven-center a:focus,
+.bg-seven-center a:focus-visible,
+.bg-seven-center a:active {
+    outline: none;
+} 
+
+.bg-seven-center a:hover {
+    transform: scale(1.05)  rotate(-1deg);
+    filter: brightness(75%);
+    box-shadow: 0 0 20px 0 rgba(45, 211, 111, 0.9);
+}
+
+.bg-seven-center a:active{
+    transform: scale(0.95);
+    filter: brightness(30%);
+}
+
+.footer {
+    background-color: black;
+    height: 568px;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.footer-left {
+    width: 853px;
+    margin-left: 117px;
+    margin-top: 70px;
+}
+.footer-hero {
+    text-align: left;
+    left: 0px;
+    font-size: 40px;
+}
+
+.footer-hyperlinks {
+    display: flex; 
+    gap: 165px;
+    margin-top: 70px;
+    margin-right: 110px;
+}
+
+.footer-hyperlinks div p {
+    transition: 0.1s ease-in;
+}
+
+.footer-hyperlinks div p:hover {
+    filter: brightness(75%);
+    transform: scale(1.05)  rotate(-1deg);
+}
+
+.footer-hyperlinks div p:active {
+    transform: scale(0.95);
+    filter: brightness(30%);
+}
+
+
+.email-input {
+    margin-top: 60px;
+    height: 50px;
+    width: 673px;
+    border-bottom: 1px solid white;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.email-input a {
+    margin: auto 0;
+    transition: 0.1s ease-in;
+}
+
+
+.email-input a:hover {
+    filter: brightness(75%);
+    transform: scale(1.05)  rotate(-1deg);
+}
+
+.email-input a:active {
+    transform: scale(0.95);
+    filter: brightness(30%);
+}
+
+
+.email-input input {
+    background-color: transparent;
+    color: #FFF;
+    font-family: "JetBrains Mono";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 200;
+    letter-spacing: -5%;
+    border: none;
+}
+
+.email-input input:focus {
+    outline: none;
+}
+.socials {
+    margin-top: 25px;
+    display: flex;
+    gap: 20px;
+}
+
+.socials a {
+    transition: 0.1s ease-in;
+}
+
+.socials a:hover {
+    filter: brightness(75%);
+    transform: scale(1.05)  rotate(-1deg);
+}
+
+.socials a:active {
+    transform: scale(0.95);
+    filter: brightness(30%);
+}
+
+
+.copyright {
+    margin-top: 60px;
+    font-size: 14px;
+}

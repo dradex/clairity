@@ -1,0 +1,434 @@
+:root {
+    --accent-color: rgb(76, 175, 229);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html, body {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 200;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+
+
+b {
+    font-weight: 600;
+}
+
+button {
+    transition: 0.1s ease;
+}
+
+button:hover {
+    transform: scale(1.05)  rotate(-1deg);
+}
+
+button:active {
+    transform: scale(0.95);
+    filter: brightness(30%);
+}
+
+p, button {
+    color: #FFF;
+    font-family: "JetBrains Mono";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 170%; /* 47.6px */
+    letter-spacing: -5%;
+}
+
+h1 {
+    color: #FFF;
+    font-family: "JetBrains Mono";
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 170%; /* 47.6px */
+    letter-spacing: -5%;
+}
+
+h2 {
+    color: #FFF;
+    font-family: "JetBrains Mono";
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 170%; /* 47.6px */
+    letter-spacing: -5%;
+}
+
+section {
+    height: 100vh;                  /* each section fills screen height */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+}
+
+
+.bg-one {
+  position: relative;
+  overflow: visible; 
+  z-index: 3;
+}
+
+.bg-one::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("attached_assets/featuresbgone.png");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(70%);
+  z-index: 3;
+}
+
+.bg-one > * {
+  position: relative;
+  z-index: 3;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    gap: 30px;
+    margin-right: 40px;
+    margin-top: 200px;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.hero-text h1 {
+    color: #3887b2;
+    font-weight: 300;
+    font-size: 80px;
+    line-height: 90%;
+}
+
+.hero-text p {
+    font-size: 50px;
+}
+
+.hero-expl  {
+    font-size: 24px !important;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.expl-holder {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.expl-holder > div {
+    position: absolute;
+    
+}
+.realtimemonitoring {
+    left: 100px;
+    top: 185px;
+}
+
+.auto-reports {
+    left: 350px;
+    bottom: 100px;
+}
+
+.arrow-holder, .arrow-holder img {
+    position: absolute;
+}
+.arrow-holder {
+    width: 100%;
+}
+
+
+
+#a {
+    left: 323px;
+    top: -54px;
+}
+
+#b {
+    left: 377px;
+    top: 377px;
+   
+}   
+
+#c {
+    left: 806px;
+    top: 711px;
+   
+}   
+
+#d  {
+    left: 670px;
+    top: 866px;
+   
+}   
+
+#e {
+    left: 830px;
+    top: 1118px;
+   
+}   
+
+.bg-two {
+  position: relative;
+  overflow: hidden; 
+}
+
+.bg-two::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("attached_assets/featuresbgtwo.png");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(60%);
+  z-index: 0;
+}
+
+.bg-two > * {
+  position: relative;
+  z-index: 1;
+}
+
+.custom {
+    left: 300px;
+    top: 120px;
+}
+
+.action {
+    right: 320px;
+    top: 215px;
+}
+
+.alerts {
+    left: 450px;
+    bottom: 214px;
+}
+
+.scale {
+    right: 235px;
+    bottom: 80px;
+}
+
+
+.dashboard {
+  position: relative;
+  overflow: hidden; 
+}
+
+.dashboard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("attached_assets/dashboard.png");
+  background-size: cover;
+  background-position: center;
+  filter: brightness(60%);
+  z-index: 0;
+}
+
+.dashboard > * {
+  position: relative;
+  z-index: 1;
+}
+
+.dashboard > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.dashboard > div > a {
+    transition: 0.1s ease-in;
+}
+
+.dashboard > div > a:hover {
+    filter: brightness(75%);
+    transform: scale(1.25)  rotate(-1deg);
+}
+
+.dashboard > div > a:active {
+    transform: scale(0.95);
+    filter: brightness(30%);
+}
+
+.topbar {
+    mix-blend-mode: difference;
+    position: fixed;     /* sticks to top */
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 80px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    font-weight: 200;
+    color: white;
+    font-size: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: -5% ;
+    padding: 0 20px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    z-index: 1000;       /* keep it above everything else */
+}
+
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    flex: 1; 
+    gap: 20px;
+    mix-blend-mode: difference;
+}
+
+.nav-links div {
+    transition: 0.1s ease-in;
+}
+
+.nav-links div:hover {
+    filter: brightness(75%);
+    transform: scale(1.05)  rotate(-1deg);
+}
+
+.nav-links div:active {
+    transform: scale(0.95);
+    filter: brightness(30%);
+}
+
+.topbar img {
+    width: 100px;
+    margin-left: auto; /* pushes image to far right */
+}
+
+
+.footer {
+    background-color: black;
+    height: 568px;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.footer-left {
+    width: 853px;
+    margin-left: 117px;
+    margin-top: 70px;
+}
+.footer-hero {
+    text-align: left;
+    left: 0px;
+    font-size: 40px;
+}
+
+.footer-hyperlinks {
+    display: flex; 
+    gap: 165px;
+    margin-top: 70px;
+    margin-right: 110px;
+}
+
+.footer-hyperlinks div p {
+    transition: 0.1s ease-in;
+}
+
+.footer-hyperlinks div p:hover {
+    filter: brightness(75%);
+    transform: scale(1.05)  rotate(-1deg);
+}
+
+.footer-hyperlinks div p:active {
+    transform: scale(0.95);
+    filter: brightness(30%);
+}
+
+
+.email-input {
+    margin-top: 60px;
+    height: 50px;
+    width: 673px;
+    border-bottom: 1px solid white;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.email-input a {
+    margin: auto 0;
+    transition: 0.1s ease-in;
+}
+
+
+.email-input a:hover {
+    filter: brightness(75%);
+    transform: scale(1.05)  rotate(-1deg);
+}
+
+.email-input a:active {
+    transform: scale(0.95);
+    filter: brightness(30%);
+}
+
+
+.email-input input {
+    background-color: transparent;
+    color: #FFF;
+    font-family: "JetBrains Mono";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 200;
+    letter-spacing: -5%;
+    border: none;
+}
+
+.email-input input:focus {
+    outline: none;
+}
+.socials {
+    margin-top: 25px;
+    display: flex;
+    gap: 20px;
+}
+
+.socials a {
+    transition: 0.1s ease-in;
+}
+
+.socials a:hover {
+    filter: brightness(75%);
+    transform: scale(1.05)  rotate(-1deg);
+}
+
+.socials a:active {
+    transform: scale(0.95);
+    filter: brightness(30%);
+}
+
+
+.copyright {
+    margin-top: 60px;
+    font-size: 14px;
+}

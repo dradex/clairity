@@ -1,0 +1,818 @@
+:root {
+    --accent-color: rgb(76, 175, 229);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html, body {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 200;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+a {
+  color: inherit; /* blue colors for links too */
+  text-decoration: inherit; /* no underline */
+}
+
+
+b {
+    font-weight: 600;
+}
+
+button {
+    transition: 0.1s ease;
+}
+
+button:hover {
+    transform: scale(1.05)  rotate(-1deg);
+}
+
+button:active {
+    transform: scale(0.95);
+    filter: brightness(30%);
+}
+
+p, button {
+    color: #FFF;
+    font-family: "JetBrains Mono";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 200;
+    line-height: 170%; /* 47.6px */
+    letter-spacing: -5%;
+}
+
+h1 {
+    color: #FFF;
+    font-family: "JetBrains Mono";
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 170%; /* 47.6px */
+    letter-spacing: -5%;
+}
+
+section {
+    height: 100vh;                  /* each section fills screen height */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+}
+
+
+.bg-one {
+  position: relative;
+  overflow: hidden; /* ensures pseudo-element stays inside */
+}
+
+.bg-one::before {
+  content: "";
+  position: absolute;
+  inset: 0;                                                                 
+  background-color: #F0EFF5;
+  z-index: 0;
+}
+
+.bg-one > * {
+  position: relative;
+  z-index: 1;
+}
+
+.bg-one-blob {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* size scales with viewport but stays reasonable */
+  width: clamp(180px, 22vw, 360px);
+  height: clamp(180px, 22vw, 360px);
+  background: #4CAFE5;
+  opacity: 0.65;
+  filter: blur(60px);
+  /* JS controls position via translate(px, px) */
+  transform: translate(0, 0);
+  /* organic shape; will be animated */
+  border-radius: 36% 64% 45% 55% / 52% 34% 66% 48%;
+  pointer-events: none;
+  z-index: 0; /* under the grid, above bg-four::before */
+  will-change: transform, border-radius;
+  animation: blob-morph 20s ease-in-out infinite alternate, blob-wobble 12s ease-in-out infinite alternate;
+}
+@keyframes blob-morph {
+  0%   { border-radius: 36% 64% 45% 55% / 52% 34% 66% 48%; }
+  25%  { border-radius: 42% 58% 40% 60% / 47% 39% 61% 53%; }
+  50%  { border-radius: 55% 45% 58% 42% / 40% 62% 38% 60%; }
+  75%  { border-radius: 47% 53% 40% 60% / 58% 37% 63% 42%; }
+  100% { border-radius: 36% 64% 45% 55% / 52% 34% 66% 48%; }
+}
+
+@keyframes blob-wobble {
+  0%   { box-shadow: 0 0 40px rgba(76,175,229,0.35); }
+  100% { box-shadow: 0 0 65px rgba(76,175,229,0.55); }
+}
+
+.bg-one-hero-text {
+    position: relative;
+    right: 0px;
+    width: 100%;
+    text-align: right;
+    margin-top: 100px;
+}
+
+.bg-one h1 {
+    color: black;
+    padding-right: 40px;
+}
+
+.bg-one p {
+    color: black;
+}
+
+.bg-one button {
+    color: black;
+}
+
+.bg-one-container {
+    display: flex;
+    gap: 35px;
+    justify-content: space-between;
+    padding: 40px;
+    width: 100vw;
+    max-width: 100vw;
+    height: 100vh;         
+    max-height: 100vh;
+    box-sizing: border-box;
+}
+
+.bg-one-container > div {
+    flex: 1;
+    min-width: 0;
+    border: 2px solid black;
+    box-shadow: 0 8px 4px 0 rgba(0,0,0,0.5);
+}
+
+.bg-one-pm {
+    background-size: 100% 100%, cover;        
+    background-position: center, center;   
+    background-repeat: no-repeat, no-repeat; 
+    background-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 100%), url("attached_assets/propertymanagersbgfour.png");
+}
+
+.bg-one-offices {
+    background-size: 100% 100%, cover;        
+    background-position: center, center;   
+    background-repeat: no-repeat, no-repeat; 
+    background-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 100%), url("attached_assets/offices.png");
+}
+
+.bg-one-health {
+    background-size: 100% 100%, cover;        
+    background-position: center, center;   
+    background-repeat: no-repeat, no-repeat; 
+    background-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 100%), url("attached_assets/healthcare.png");
+}
+
+.bg-one-schools {
+    background-size: 100% 100%, cover;        
+    background-position: center, center;   
+    background-repeat: no-repeat, no-repeat; 
+    background-image: radial-gradient(circle at 50% 50%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 100%), url("attached_assets/schools.png");
+}
+
+.bg-one-blur {
+    position: relative;
+    backdrop-filter: blur(20px);
+    width: 100%;
+    height: 50%;
+    top: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 46px;
+    gap: 23px;
+}
+
+.bg-one-blur p {
+    color: white;
+    text-align: right;
+    width: 100%;
+    font-size: 24px;
+}
+
+.bg-one-blur button {
+    width: 100%;
+    height: 50px;
+    background-color: var(--accent-color);
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 54px;
+    text-align: right;
+    padding-right: 24px;
+    border: none;
+}
+
+
+.bg-two {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* ensures content starts at top */
+  align-items: flex-start;
+}
+
+.bg-two::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("attached_assets/propertymanagers_2.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: brightness(30%);
+    z-index: 0;
+}
+
+.bg-two > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+.bg-two > p {
+  position: static;  
+  margin: 0;
+  padding: 44px;
+  height: auto; 
+  text-align: right;
+  width: 100%;
+}
+
+.bg-two div {
+   backdrop-filter: blur(20px); 
+   width: 60%;
+   height: 50%;
+   justify-self: center;
+   align-self: flex-end;
+   margin: auto 0;
+   text-align: right;
+   padding: 40px;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-end;
+   justify-content: center;
+   gap: 25px;
+}
+.bg-two div h1{
+   font-size: 50px;
+}
+
+
+.bg-three {
+    background-color: white;
+    padding: 80px;
+    height: 150%;
+}
+
+.bg-three > div {
+    height: 100%;
+    width: 100%;
+    border-top: 2px solid rgba(0,0,0,0.25);
+    border-bottom: 2px solid rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 30px;
+}
+
+.bg-three div div {
+    height: 200px;
+    width: 50%;
+    border-right: 2px solid rgba(0,0,0,0.25);
+    align-self: flex-start;
+}
+
+.bg-three div p.visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.bg-three div p {
+    color: black;
+    transform: translateX(-500px);
+    transition: transform 600ms ease;
+    opacity: 0;
+}
+
+.bg-three div button {
+    color: rgba(45, 211, 111, 1);
+    background-color: black;
+    width: 400px;
+    height: 60px;
+    border: 2px solid rgba(45, 211, 111, 1);
+    box-shadow: 0 0 20.6px 4px rgba(45, 211, 111, 0.4);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+
+
+.bg-four {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* ensures content starts at top */
+  align-items: flex-start;
+}
+
+.bg-four::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("attached_assets/offices_2.png");
+    background-size: cover;
+    background-position: center;
+    filter: brightness(70%);
+    z-index: 0;
+}
+
+.bg-four > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+.bg-four > p {
+  position: static;  
+  margin: 0;
+  padding: 44px;
+  height: auto; 
+  text-align: right;
+  width: 100%;
+}
+
+.bg-four div {
+   backdrop-filter: blur(20px); 
+   width: 60%;
+   height: 50%;
+   justify-self: center;
+   align-self: flex-end;
+   margin: auto 0;
+   text-align: right;
+   padding: 40px;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-end;
+   justify-content: center;
+   gap: 25px;
+}
+.bg-four div h1{
+   font-size: 50px;
+}
+
+
+.bg-five {
+    background-color: white;
+    padding: 80px;
+    height: 150%;
+}
+
+.bg-five > div {
+    height: 100%;
+    width: 100%;
+    border-top: 2px solid rgba(0,0,0,0.25);
+    border-bottom: 2px solid rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 30px;
+}
+
+.bg-five div div {
+    height: 200px;
+    width: 50%;
+    border-right: 2px solid rgba(0,0,0,0.25);
+    align-self: flex-start;
+}
+
+.bg-five div p {
+    color: black;
+    transform: translateX(-500px);
+    transition: transform 600ms ease;
+    opacity: 0;
+}
+
+.bg-five div p.visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.bg-five div button {
+    color: rgba(45, 211, 111, 1);
+    background-color: black;
+    width: 400px;
+    height: 60px;
+    border: 2px solid rgba(45, 211, 111, 1);
+    box-shadow: 0 0 20.6px 4px rgba(45, 211, 111, 0.4);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+.bg-six {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* ensures content starts at top */
+  align-items: flex-start;
+}
+
+.bg-six::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("attached_assets/classroom_2.png");
+    background-size: cover;
+    background-position: center;
+    filter: brightness(70%);
+    z-index: 0;
+}
+
+.bg-six > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+.bg-six > p {
+  position: static;  
+  margin: 0;
+  padding: 44px;
+  height: auto; 
+  text-align: right;
+  width: 100%;
+}
+
+.bg-six div {
+   backdrop-filter: blur(20px); 
+   width: 60%;
+   height: 50%;
+   justify-self: center;
+   align-self: flex-end;
+   margin: auto 0;
+   text-align: right;
+   padding: 40px;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-end;
+   justify-content: center;
+   gap: 25px;
+}
+.bg-six div h1{
+   font-size: 50px;
+}
+
+
+.bg-seven {
+    background-color: white;
+    padding: 80px;
+    height: 150%;
+}
+
+.bg-seven > div {
+    height: 100%;
+    width: 100%;
+    border-top: 2px solid rgba(0,0,0,0.25);
+    border-bottom: 2px solid rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 30px;
+}
+
+.bg-seven div div {
+    height: 200px;
+    width: 50%;
+    border-right: 2px solid rgba(0,0,0,0.25);
+    align-self: flex-start;
+}
+
+.bg-seven div p {
+    color: black;
+    transform: translateX(-500px);
+    transition: transform 600ms ease;
+    opacity: 0;
+}
+
+.bg-seven div p.visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.bg-seven div button {
+    color: rgba(45, 211, 111, 1);
+    background-color: black;
+    width: 400px;
+    height: 60px;
+    border: 2px solid rgba(45, 211, 111, 1);
+    box-shadow: 0 0 20.6px 4px rgba(45, 211, 111, 0.4);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.bg-eight {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* ensures content starts at top */
+  align-items: flex-start;
+}
+
+.bg-eight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("attached_assets/healthcare_2.jpg");
+    background-size: cover;
+    background-position: center;
+    filter: brightness(40%);
+    z-index: 0;
+}
+
+.bg-eight > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+.bg-eight > p {
+  position: static;  
+  margin: 0;
+  padding: 44px;
+  height: auto; 
+  text-align: right;
+  width: 100%;
+}
+
+.bg-eight div {
+   backdrop-filter: blur(20px); 
+   width: 60%;
+   height: 50%;
+   justify-self: center;
+   align-self: flex-end;
+   margin: auto 0;
+   text-align: right;
+   padding: 40px;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-end;
+   justify-content: center;
+   gap: 25px;
+}
+.bg-eight div h1{
+   font-size: 50px;
+}
+
+
+.bg-nine {
+    background-color: white;
+    padding: 80px;
+    height: 150%;
+}
+
+.bg-nine > div {
+    height: 100%;
+    width: 100%;
+    border-top: 2px solid rgba(0,0,0,0.25);
+    border-bottom: 2px solid rgba(0,0,0,0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 30px;
+}
+
+.bg-nine div div {
+    height: 200px;
+    width: 50%;
+    border-right: 2px solid rgba(0,0,0,0.25);
+    align-self: flex-start;
+}
+
+.bg-nine div p {
+    color: black;
+    transform: translateX(-500px);
+    transition: transform 600ms ease;
+    opacity: 0;
+}
+
+.bg-nine div p.visible {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.bg-nine div button {
+    color: rgba(45, 211, 111, 1);
+    background-color: black;
+    width: 400px;
+    height: 60px;
+    border: 2px solid rgba(45, 211, 111, 1);
+    box-shadow: 0 0 20.6px 4px rgba(45, 211, 111, 0.4);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.bg-nine div button {
+    color: rgba(45, 211, 111, 1);
+    background-color: black;
+    width: 400px;
+    height: 60px;
+    border: 2px solid rgba(45, 211, 111, 1);
+    box-shadow: 0 0 20.6px 4px rgba(45, 211, 111, 0.4);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+.topbar {
+    mix-blend-mode: difference;
+    position: fixed;     /* sticks to top */
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 80px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    font-weight: 200;
+    color: white;
+    font-size: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: -5% ;
+    padding: 0 20px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    z-index: 1000;       /* keep it above everything else */
+}
+
+.nav-links {
+    display: flex;
+    justify-content: center;
+    flex: 1; 
+    gap: 20px;
+    mix-blend-mode: difference;
+}
+
+.nav-links div {
+    transition: 0.1s ease-in;
+}
+
+.nav-links div:hover {
+    filter: brightness(75%);
+    transform: scale(1.05)  rotate(-1deg);
+}
+
+.nav-links div:active {
+    transform: scale(0.95);
+    filter: brightness(30%);
+}
+
+.topbar img {
+    width: 100px;
+    margin-left: auto; /* pushes image to far right */
+}
+
+
+.footer {
+    background-color: black;
+    height: 568px;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.footer-left {
+    width: 853px;
+    margin-left: 117px;
+    margin-top: 70px;
+}
+.footer-hero {
+    text-align: left;
+    left: 0px;
+    font-size: 40px;
+}
+
+.footer-hyperlinks {
+    display: flex; 
+    gap: 165px;
+    margin-top: 70px;
+    margin-right: 110px;
+}
+
+.footer-hyperlinks div p {
+    transition: 0.1s ease-in;
+}
+
+.footer-hyperlinks div p:hover {
+    filter: brightness(75%);
+    transform: scale(1.05)  rotate(-1deg);
+}
+
+.footer-hyperlinks div p:active {
+    transform: scale(0.95);
+    filter: brightness(30%);
+}
+
+
+.email-input {
+    margin-top: 60px;
+    height: 50px;
+    width: 673px;
+    border-bottom: 1px solid white;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+.email-input a {
+    margin: auto 0;
+    transition: 0.1s ease-in;
+}
+
+
+.email-input a:hover {
+    filter: brightness(75%);
+    transform: scale(1.05)  rotate(-1deg);
+}
+
+.email-input a:active {
+    transform: scale(0.95);
+    filter: brightness(30%);
+}
+
+
+.email-input input {
+    background-color: transparent;
+    color: #FFF;
+    font-family: "JetBrains Mono";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 200;
+    letter-spacing: -5%;
+    border: none;
+}
+
+.email-input input:focus {
+    outline: none;
+}
+.socials {
+    margin-top: 25px;
+    display: flex;
+    gap: 20px;
+}
+
+.socials a {
+    transition: 0.1s ease-in;
+}
+
+.socials a:hover {
+    filter: brightness(75%);
+    transform: scale(1.05)  rotate(-1deg);
+}
+
+.socials a:active {
+    transform: scale(0.95);
+    filter: brightness(30%);
+}
+
+
+.copyright {
+    margin-top: 60px;
+    font-size: 14px;
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clairity Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="attached_assets/favicon.png">
+    <link rel="stylesheet" href="styles_dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="topbar">
+        <div class="scanDropdown">
+          <button class="dropdown-btn">
+              Scan 09.23.2025
+            <span class="dropdown-arrow">&#9662;</span> 
+          </button>
+        </div>
+        <input class="searchbar" type="text" id="searchbar" name="searchbar" placeholder="Search...">
+        </input>
+
+        <div class="location"> 
+            Location: Sample Room
+        </div>
+        <div class="time"> 
+            7:05 PM
+        </div> 
+    </div>
+    <div class="sidebar">
+         <div class="Rectangle9">
+             <img src="attached_assets/logotransp.png" style="width: 100%;">
+             <div class="auto-layout-container" style="position: absolute;">
+                 <img src="attached_assets/exit.png" class="layout-image tooltip-container" data-tooltip="EXIT TO MAIN MENU">
+                 <img src="attached_assets/pfp.png" class="layout-image tooltip-container" data-tooltip="EDIT USER SETTINGS">
+            </div>
+
+             <div class="auto-layout-container" style="height:70%; justify-content: center;  margin-top: auto;">
+                  <img src="attached_assets/Data.png" style="opacity: 1;" class="layout-image tooltip-container" data-tooltip="VIEW DASHBOARD">
+                  <img src="attached_assets/actions.png" class="layout-image tooltip-container" data-tooltip="TAKE ACTION/VIEW REPORT">
+                  <img src="attached_assets/3dmap.png" class="layout-image tooltip-container" data-tooltip="VIEW 3D MAP">
+             </div>
+             
+         </div>      
+    </div>
+    <div class="main">
+        <div>
+            <div>
+                <p>Indoor<span style="opacity: 0.5;">/Outdoor</span> PPM (CO₂)</p>
+                <div>
+                        
+
+                </div>
+            </div>
+   
+        </div>
+    </div>
+
+    <span class="tooltip-text">This is a tooltip that follows your mouse.</span>
+
+    <script src="script_dashboard.js"></script>
+</body>
+</html>
