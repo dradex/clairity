@@ -1,0 +1,39 @@
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    padding: 240px 440px;
+    gap: 40px;
+}
+
+.hero-section h1 {
+    text-align: center;
+}
+.hero-section p {
+    width: 70%;
+}
+
+.installation  {
+    background-color: #FAFAFA;
+    padding: 80px 60px;
+}
+
+.installation > div {
+    display: flex;
+    flex-direction: column;
+    border: 2px dashed red;
+    width: 100%;
+    height: 100%;
+}
+
+.installation > div > div {
+    width: 100%;
+    height: 100%;
+    border: 2px dashed green;
+}
+.finalcta {
+    background-image: none;
+}
+
+.finalcta h3, .finalcta p {
+    color: black;
+}
