@@ -1,4 +1,13 @@
+document.getElementById("submitButton").onclick = function(e) {
+  e.preventDefault();
+  document.getElementById("contactForm").submit();
+  setTimeout(() => {
+    window.location.href = "thankyou.html";
+  }, 300); // delay optional
+};
+
 let slideIndex = 1;
+
 showSlides(slideIndex);
 
 // Next/previous controls
@@ -33,3 +42,4 @@ function showSlides(n) {
   document.getElementById("rightbutton").style.display =
       slideIndex === slides.length ? "none" : "block";
 } 
+
