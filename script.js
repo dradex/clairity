@@ -1,10 +1,16 @@
-document.getElementById("submitButton").onclick = function(e) {
-  e.preventDefault();
-  document.getElementById("contactForm").submit();
-  setTimeout(() => {
-    window.location.href = "thankyou.html";
-  }, 300); // delay optional
-};
+try {
+  document.getElementById("submitButton").onclick = function (e) {
+    e.preventDefault();
+    document.getElementById("contactForm").submit();
+    setTimeout(() => {
+      window.location.href = "thankyou.html";
+    }, 300); // delay optional
+  };
+} catch (error) {
+  console.error("Caught an error:", error.message); // Output: Caught an error: Cannot divide by zero!
+} finally {
+  console.log("Finally block executed."); // Output: Finally block executed.
+}
 
 let slideIndex = 1;
 
@@ -12,12 +18,12 @@ showSlides(slideIndex);
 
 // Next/previous controls
 function plusSlides(n) {
-  showSlides(slideIndex += n);
+  showSlides((slideIndex += n));
 }
 
 // Thumbnail image controls
 function currentSlide(n) {
-  showSlides(slideIndex = n);
+  showSlides((slideIndex = n));
 }
 
 function showSlides(n) {
@@ -29,7 +35,7 @@ function showSlides(n) {
 
   // Hide all slides
   for (let i = 0; i < slides.length; i++) {
-      slides[i].classList.remove("active");
+    slides[i].classList.remove("active");
   }
 
   // Show the selected slide with a fade
@@ -37,9 +43,8 @@ function showSlides(n) {
 
   // --- Hide/show arrows ---
   document.getElementById("leftbutton").style.display =
-      slideIndex === 1 ? "none" : "block";
+    slideIndex === 1 ? "none" : "block";
 
   document.getElementById("rightbutton").style.display =
-      slideIndex === slides.length ? "none" : "block";
-} 
-
+    slideIndex === slides.length ? "none" : "block";
+}
