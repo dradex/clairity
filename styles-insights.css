@@ -1,0 +1,86 @@
+.hero-section {
+  margin: 120px 0;
+  flex-direction: column;
+  height: auto;
+  gap: 65px;
+}
+
+.hero-section > p {
+  width: 80%;
+  text-align: center;
+}
+.hero-section > div {
+  width: 60%;
+  height: 90vh;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.hero-section > div > div {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+  text-align: center;
+  overflow: hidden; /* so pseudo stays inside */
+}
+
+/* Move all filters to a pseudo-element */
+.hero-section > div > div::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit; /* copies the background image */
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: saturate(0.4) brightness(0.8) blur(0.5px);
+  z-index: 0;
+  transition: 0.3s ease-out;
+}
+
+/* Reset background for parent so it doesn't duplicate */
+.hero-section > div > div {
+  background: none;
+}
+
+.hero-section > div > div p {
+  position: relative;
+  z-index: 2;
+  min-height: 120px;
+  line-height: 40px;
+  backdrop-filter: blur(6px);
+  background: rgba(255,255,255,0.04);
+  font-weight: 500;
+  color: white;
+  padding: 6px 12px;
+  width: 100%;
+  transition: 0.3s ease-out;
+  margin-bottom: 0px;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;  
+  justify-content: center;
+}
+/* Hover: brighten image only */
+.hero-section > div > div:hover::before {
+  filter: saturate(1) brightness(1) blur(0px);
+}
+
+.finalcta {
+  background-image: none;
+}
+
+.finalcta h3,
+.finalcta p {
+  color: black;
+}
+
