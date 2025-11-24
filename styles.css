@@ -84,6 +84,7 @@ a:active {
 }
 
 .top-nav {
+    z-index: 999999;
     backdrop-filter: blur(20px);
     display: flex;
     position: fixed;
