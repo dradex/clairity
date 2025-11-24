@@ -1,0 +1,117 @@
+li {
+    list-style-position: inside;
+    padding-left: 1em;
+}
+
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  
+}
+
+.hero-section * {
+  width: 60%;
+}
+
+.expl {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    margin: 180px 0;
+}
+
+
+.expl-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 130px;
+  gap: 50px;
+}
+
+.expl-main > div {
+  text-align: center;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.expl-main h3 {
+  font-size: 28px;
+}
+
+.expl .buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+
+.noit {
+  background-color: #FAFAFA;
+  gap: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.faq {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.faq details {
+  padding: 12px 16px;
+  width: 100%;
+  transition: background 1s ease;
+}
+
+.faq summary {
+    font-weight: 600;
+    list-style: none;
+    cursor: default
+}
+
+
+.faq details[open] {
+    background: #f0f0f0;
+}
+
+.pricingfaq {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  padding: 0 450px;
+}
+
+.pricingfaq h3 {
+  font-size: 30px;
+}
+
+.pricingfaq b {
+  font-weight: 600;
+}
+
+.pricingfaq a {
+  display: block;
+  background-color: #222223;
+  color: white;
+}
+
+
+.finalcta {
+  background-image: none;
+}
+
+.finalcta h3,
+.finalcta p {
+  color: black;
+}

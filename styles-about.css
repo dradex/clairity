@@ -1,0 +1,28 @@
+li {
+    list-style-position: inside;
+    padding-left: 1em;
+}
+
+
+.hero-section, .expl {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 0 600px;
+}
+
+.hero-section *, .expl * {
+  width: 100%;
+}
+
+.finalcta {
+  background-image: none;
+}
+
+.finalcta h3,
+.finalcta p {
+  color: black;
+}

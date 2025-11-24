@@ -19,6 +19,7 @@ html, body {
 
 
 section {
+    
     height: 100vh;                  /* each section fills screen height */
     background-size: cover;
     background-position: center;
@@ -50,7 +51,10 @@ h3 {
     font-weight: 400;
 }
 
-p, li, th {
+b {
+  font-weight: 500;
+}
+p, li, th, details, summary{ 
     line-height: 42px;
     letter-spacing: -2%;
     font-size: 24px;    
@@ -93,6 +97,10 @@ a:active {
     justify-content: space-between;
     align-items: center;
     padding: 0 40px;
+}
+
+.top-nav a {
+    font-size: 20px !important;
 }
 
 .left {
@@ -275,6 +283,27 @@ video {
     flex-direction: column;
     text-align: center;
     gap: 10px;
+}
+
+.data-graphs img {
+  width: 700px;
+ 
+  border-radius: 4px;
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.25);
+  background-color: #D9D9D9;
+
+  cursor: default;
+  transition: 0.3s ease;
+  filter: grayscale(50%);
+}
+
+.data-graphs img:hover {
+  width: 700px;
+  border-radius: 4px;
+  box-shadow: 0 4px 4px 0 rgba(0,0,0,0.5);
+  transform:scale(1.5);
+  filter: grayscale(0%);
+  z-index: 9999;
 }
 
 
