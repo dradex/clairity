@@ -1,0 +1,34 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  padding: 100px 500px;
+  gap: 50px;
+}
+
+.faq {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: center;
+}
+
+.faq details {
+  text-align: left;
+  padding: 12px 16px;
+  width: 100%;
+  transition: background 1s ease;
+}
+
+.faq summary {
+    font-weight: 600;
+    list-style: none;
+    cursor: default
+}
+
+
+.faq details[open] {
+    background: #f0f0f0;
+}
