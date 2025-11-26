@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y1H2B177K5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-Y1H2B177K5');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clairity | Indoor Air Quality Monitoring</title>
+    <meta name="description"
+        content="Real-time indoor air monitoring that helps businesses, schools, and facilities improve health, productivity, and energy efficiency.">
+    <meta name="keywords"
+        content="indoor air quality, IAQ, CO2 monitoring, air sensors, energy efficiency, building health">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Clairity | Indoor Air Quality Monitoring">
+    <meta property="og:description"
+        content="Turn air data into action with Clairity. Track, analyze, and improve your building’s air quality.">
+    <meta property="og:image" content="https://clairity.info/assets/offices.png">
+    <meta property="og:url" content="https://clairity.info">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://clairity.info">
+    <link rel="icon" type="image/x-icon" href="attached_assets/favicon.png">
+    <link rel="stylesheet" href="styles-dashboard.css">
+    <link rel="stylesheet" href="styles-overview.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="tooltip"></div>
+    <div class="sidebar">
+        <img src="attached_assets/logotransp.png">
+        <div>
+            <a href="index.html"><span data-tooltip="Exit to homepage"
+                    class="tt material-symbols-outlined">exit_to_app</span></a>
+            <a><span data-tooltip="Settings" class="tt material-symbols-outlined">settings</span></a>
+            <img style="border-radius: 50%;" src="attached_assets/pfp.png">
+        </div>
+    </div>
+    <div class="top-div">
+        <p style="opacity: 0;">08:21 PM</p>
+        <input placeholder="Search...">
+        <p id="current-time">08:21 PM</p>
+    </div>
+    <div class="main">
+        <h2>CURRENT BUILDINGS</h2>
+        <div>
+            <div class="building">
+                <div>
+                    <h3>Allen High School</h3>
+                    <p style="margin-bottom: 50px;">AISD / 300 Rivercrest Blvd, Allen, TX 75002 </p>
+                    
+                    <p><b>Avg CO₂ Today:</b></p>
+                    <p>1289 ppm</p>
+                    <p><b>Avg TVOC Today:</b></p>
+                    <p style="margin-bottom: 50px;">261 µg/m³ </p>
+                    <p>Rooms: 12</p>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                        <p>Status: Online</p>
+                        <div style="border-radius: 16px; width: 12px; height: 12px; background-color: #3BED85;"></div>
+                    </div>
+                </div>
+                <a href="building.html">
+                    [ View Building → ]
+                </a>
+            </div>
+        </div>
+    </div>
+    <script src="dashboard.js"></script>
+</body>
+
+</html>

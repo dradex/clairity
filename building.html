@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y1H2B177K5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-Y1H2B177K5');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clairity | Indoor Air Quality Monitoring</title>
+    <meta name="description"
+        content="Real-time indoor air monitoring that helps businesses, schools, and facilities improve health, productivity, and energy efficiency.">
+    <meta name="keywords"
+        content="indoor air quality, IAQ, CO2 monitoring, air sensors, energy efficiency, building health">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Clairity | Indoor Air Quality Monitoring">
+    <meta property="og:description"
+        content="Turn air data into action with Clairity. Track, analyze, and improve your building’s air quality.">
+    <meta property="og:image" content="https://clairity.info/assets/offices.png">
+    <meta property="og:url" content="https://clairity.info">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://clairity.info">
+    <link rel="icon" type="image/x-icon" href="attached_assets/favicon.png">
+    <link rel="stylesheet" href="styles-dashboard.css">
+    <link rel="stylesheet" href="styles-overview.css">
+    <link rel="stylesheet" href="styles-building.css">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="tooltip"></div>
+    <div class="sidebar">
+        <div>
+            <img style="width: 80%; border: none;" src="attached_assets/logotransp.png">
+            <a href="overview.html" ><span data-tooltip="Exit to Buildings Overview" class="tt material-symbols-outlined">chevron_backward</span></a>
+        </div>
+        <div>
+            <a href="index.html"><span data-tooltip="Exit to homepage"
+                    class="tt material-symbols-outlined">exit_to_app</span></a>
+            <a><span data-tooltip="Settings" class="tt material-symbols-outlined">settings</span></a>
+            <img style="border-radius: 50%;" src="attached_assets/pfp.png">
+        </div>
+    </div>
+    <div class="top-div">
+        <p >ALLEN HIGH SCHOOL</p>
+        <input placeholder="Search...">
+        <p id="current-time">08:21 PM</p>
+    </div>
+    <div class="main">
+        <div>
+            <div id="floorplan">
+                NO FLOOR PLAN DATA FOUND
+            </div>
+        </div>
+        <div class="rightbar">
+            <h3>ALLEN HIGH SCHOOL</h3>
+            <a href="room.html"><span style="text-decoration: underline;">ROOM 1</span>   Last scan: 09/23/2025</a>
+            <a href="room.html"><span style="text-decoration: underline;">ROOM 2</span>   Last scan: 09/23/2025</a>
+            <a href="room.html"><span style="text-decoration: underline;">ROOM 3</span>   Last scan: 09/23/2025</a>
+            <a href="room.html"><span style="text-decoration: underline;">ROOM 4</span>   Last scan: 09/23/2025</a>
+            <a href="room.html"><span style="text-decoration: underline;">ROOM 5</span>   Last scan: 09/22/2025</a>
+            <a href="room.html"><span style="text-decoration: underline;">ROOM 6</span>   Last scan: 09/22/2025</a>
+            <a href="room.html"><span style="text-decoration: underline;">ROOM 7</span>   Last scan: 09/22/2025</a>
+            <a href="room.html"><span style="text-decoration: underline;">ROOM 8</span>   Last scan: 09/22/2025</a>
+        </div>
+    </div>
+    <script src="dashboard.js"></script>
+</body>
+
+</html>

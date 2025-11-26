@@ -30,6 +30,7 @@
     <link rel="canonical" href="https://clairity.info">
     <link rel="icon" type="image/x-icon" href="attached_assets/favicon.png">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-faq.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
@@ -37,13 +38,82 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap"
         rel="stylesheet">
+    <style>
+        h3 {
+            font-size: 24px;
+        }
+
+        .hero {
+            gap: 20px;
+            padding: 150px 650px;
+        }
+
+        .hero * {
+            width: 100%;
+        }
+
+        input {
+            resize: none;
+            font-family: "IBM Plex Sans", monospace;
+            letter-spacing: -2.5%;
+            overflow: hidden;
+            font-family: ;
+            font-size: 18px;
+            margin-bottom: 20px;
+            height: 50px;
+            border: none;
+            border-bottom: 1px solid black;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        input::placeholder {
+            opacity: 0.5;
+            font-style: italic;
+        }
+
+        .hero button {
+            background-color: #222223;
+            color: white;
+
+        }
+
+        .hyperlink {
+            text-decoration: underline !important;
+            font-style: italic !important;
+            background-color: rgba(0, 0, 0, 0) !important;
+            color: black !important;
+            border: none !important;
+            box-shadow: none !important;
+            font-size: 16px !important;
+            margin-bottom: -50px !important;
+        }
+
+        button {
+            width: 400px;
+            height: 60px;
+            border-radius: 9px;
+            box-shadow: 0 4px 4px 2px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            line-height: 60px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: ease-out 0.1s;
+            outline: none !important;
+            border: none;
+            color: black;
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 <body>
     <div class="top-nav">
         <div class="left">
             <img src="attached_assets/logotrsn.png" style="width: 147px; height: 39px;">
-            <a  href="login.html" class="login">Login</a>
+            <a href="login.html" class="login">Login</a>
         </div>
         <div class="right">
             <a href="index.html">Home</a>
@@ -57,8 +127,20 @@
         </div>
     </div>
 
-    <section class="hero">
-        
+    <section class="hero" style="height: auto;">
+        <h1 style="margin-bottom: 30px;">Sign In</h1>
+        <form id="loginForm">
+            <h3>Email</h3>
+            <input type="email" id="email" name="email" placeholder="Type here..."></input>
+            <h3>Password</h3>
+            <input type="password" id="password" name="password" placeholder="Type here..."></input>
+            <p id="wrongpass"
+                style="text-align: center; color: red; font-size: 14px; scale: 1.05; transition: 0.3s ease; display: none;">
+                Cannot Authenticate</p>
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+        <a class="hyperlink">Forgot password...</a>
+        <a href="contact.html" class="hyperlink">Need an account? Contact support</a>
     </section>
     <section class="footer">
         <div>
@@ -96,7 +178,7 @@
             </div>
         </div>
     </section>
-    <script src="script.js"></script>
+    <script src="login.js"></script>
 </body>
 
 </html>

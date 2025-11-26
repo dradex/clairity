@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y1H2B177K5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-Y1H2B177K5');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clairity | Indoor Air Quality Monitoring</title>
+    <meta name="description"
+        content="Real-time indoor air monitoring that helps businesses, schools, and facilities improve health, productivity, and energy efficiency.">
+    <meta name="keywords"
+        content="indoor air quality, IAQ, CO2 monitoring, air sensors, energy efficiency, building health">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Clairity | Indoor Air Quality Monitoring">
+    <meta property="og:description"
+        content="Turn air data into action with Clairity. Track, analyze, and improve your building’s air quality.">
+    <meta property="og:image" content="https://clairity.info/assets/offices.png">
+    <meta property="og:url" content="https://clairity.info">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://clairity.info">
+    <link rel="icon" type="image/x-icon" href="attached_assets/favicon.png">
+    <link rel="stylesheet" href="styles-dashboard.css">
+    <link rel="stylesheet" href="styles-overview.css">
+    <link rel="stylesheet" href="styles-main-dashboard.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="tooltip"></div>
+    <div class="sidebar">
+        <div>
+            <img style="width: 80%; border: none;" src="attached_assets/logotransp.png">
+            <a href="room.html"><span data-tooltip="Exit to Room Overview"
+                    class="tt material-symbols-outlined">chevron_backward</span></a>
+        </div>
+        <div>
+            <a><span data-tooltip="Scan Info" class="tt material-symbols-outlined"
+                    style="opacity: 1;">sensors</span></a>
+            <a><span data-tooltip="Floor Plan" class="tt material-symbols-outlined">map</span></a>
+            <a><span data-tooltip="Chat with AI" class="tt material-symbols-outlined">chat</span></a>
+            <a><span data-tooltip="Take Action" class="tt material-symbols-outlined">trending_up</span></a>
+        </div>
+        <div>
+            <a href="index.html"><span data-tooltip="Exit to homepage"
+                    class="tt material-symbols-outlined">exit_to_app</span></a>
+            <a><span data-tooltip="Settings" class="tt material-symbols-outlined">settings</span></a>
+            <img style="border-radius: 50%;" src="attached_assets/pfp.png">
+        </div>
+    </div>
+    <div class="top-div">
+        <p>SCAN 11.25.2025</p>
+        <input placeholder="Search...">
+        <p>ROOM 4 | ALLEN HIGH SCHOOL</p>
+        <p id="current-time">08:21 PM</p>
+    </div>
+    <div class="main">
+        <div class="core-ventilation-metrics active">
+            <div class="graphs">
+                <div>
+                    <p><b>Indoor CO2</b><i> in ppm</i></p>
+                    <div>
+                        NO DATA FOUND
+                    </div>
+                </div>
+                <div>
+                    <p><b>Indoor TVOC</b><i> in ppb</i></p>
+                    <div>
+                        NO DATA FOUND
+                    </div>
+                </div>
+            </div>
+            <div class="metrics">
+                <div>
+                    <div>
+                        <p>Mean Indoor CO2<i> (ppm)</i></p>
+                        <h3>1111.32</h3>
+                    </div>
+                    <div>
+                        <p>Mean Outdoor CO2 <i>(ppm)</i></p>
+                        <h3>400.00</h3>
+                    </div>
+                    <div>
+                        <p>Indoor Outdoor CO2 Difference<i> (ppm)</i></p>
+                        <h3>683.18</h3>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <p>Ventilation Efficiency Index (VEI)<i> (%)</i></p>
+                        <h3>11.54%</h3>
+                    </div>
+                    <div>
+                        <p>Ventilation per Person <i> (m3/h/person)</i></p>
+                        <h3>214.76</h3>
+                    </div>
+                    <div>
+                        <p>Ventilation Deficit Index (VDI)<i> (%)</i></p>
+                        <h3>85.47%</h3>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <p>Calc. Supply ACH<i> (ACH)</i></p>
+                        <h3>3.15</h3>
+                    </div>
+                    <div>
+                        <p>Decay ACH <i> (ACH)</i></p>
+                        <h3>0.36</h3>
+                    </div>
+                    <div>
+                        <p>Hours until Air Change<i> (Hours)</i></p>
+                        <h3>2 hours 45 minutes</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="breadcrumbs">
+            <button>Structural / Environmental Constants</button>
+            <button style="opacity: 1;">Core Ventilation Metrics</button>
+            <button>Pollutant Exposure Metrics</button>
+            <button>Custom</button>
+        </div>
+    </div>
+    <script src="dashboard.js"></script>
+</body>
+
+</html>

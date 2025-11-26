@@ -40,10 +40,28 @@
 </head>
 
 <body>
-    <div class="top-nav">
+    <div class="top-nav mobile">
+        <div>
+            <button onclick="openNav()" ><span class="material-symbols-outlined">menu</span></button>
+            <img src="attached_assets/logotrsn.png" style="width: 147px; height: 39px;">
+            <span style="opacity: 0;" class="material-symbols-outlined">menu</span>
+            <!-- <a  href="login.html" class="login">Login</a> -->
+        </div>
+        <div id="nav-sidebar">
+            <a href="index.html" style="opacity: 1">Home</a>
+            <a href="product.html">Product</a>
+            <a href="insights.html">Insights</a>
+            <a href="solutions.html">Solutions</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+            <a href="demo.html">Book a Demo</a>
+        </div>
+    </div>
+    <div class="top-nav desktop">
         <div class="left">
             <img src="attached_assets/logotrsn.png" style="width: 147px; height: 39px;">
-            <a class="login">Login</a>
+            <a  href="login.html" class="login">Login</a>
         </div>
         <div class="right">
             <a href="index.html" style="opacity: 1">Home</a>
@@ -558,8 +576,8 @@
                     <div>
                         <p>Resources</p>
                         <a href="faq.html">FAQ</a>
-                        <a href="privpolicy.html">Privacy Policy</a>
-                        <a href="tos.html">Terms of Service</a>
+                        <a>Privacy Policy</a>
+                        <a>Terms of Service</a>
                     </div>
                 </div>
             </div>
@@ -569,7 +587,7 @@
                 <a><i>Terms of Use</i></a>
             </div>
         </div>
-    </section>
+    </section> 
     <script src="script.js"></script>
 </body>
 

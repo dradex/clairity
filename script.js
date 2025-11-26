@@ -1,9 +1,18 @@
+function openNav() {
+  document.getElementById("nav-sidebar").classList.add("open");
+}
+
+/* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+function closeNav() {
+  document.getElementById("nav-sidebar").classList.remove("open");
+} 
+
 try {
   document.getElementById("submitButton").onclick = function (e) {
     e.preventDefault();
     document.getElementById("contactForm").submit();
     setTimeout(() => {
-      window.location.href = "thankyou.html";
+      window.location.href = "thank-you/thankyou.html";
     }, 300); // delay optional
   };
 } catch (error) {

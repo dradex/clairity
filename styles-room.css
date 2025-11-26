@@ -1,0 +1,82 @@
+.main {
+    display: flex;
+    flex-direction: row;
+    padding: 40px 80px;
+    justify-content: space-between;
+}
+.main > div {
+    width: 33%;
+    padding: 80px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+
+.rightbar {
+    width: 400px !important;
+    background-color: #16161699;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    padding: 30px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    color: white;
+    gap: 8px !important;
+    overflow-y: scroll;
+}
+.rightbar h3 {
+    margin-bottom: 10px;
+}
+
+.rightbar a {
+    cursor: default;
+    
+}
+
+#roomfloorplan > div {
+    padding: 40px;
+}
+#roomfloorplan > div {
+   width: 100%;
+    height: 100%;
+    background-color: #16161659;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+
+.roomstats {
+    color: white;
+    display: flex;
+    text-align: center;
+    padding: 20px !important;
+    justify-content: center;
+    align-items: center;
+    gap: 90px !important;
+}
+
+.roomstats > div {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.roomstats > div > div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.roomstats h3 {
+    font-weight: 600;
+}
