@@ -15,7 +15,7 @@ document.getElementById("loginForm").addEventListener("submit", async (e) => {
 
     if (response.ok) {
       localStorage.setItem("token", data.token);
-      window.location.href = "/dashboard.html";
+      window.location.href = "/overview.html";
     } else {
       // FastAPI returns error under "detail"
       alert(data.detail || "Login failed");
