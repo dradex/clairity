@@ -38,6 +38,31 @@
     <link
         href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
         rel="stylesheet">
+    <script>
+        async function loadBuildings() {
+            const res = await fetch('/api/buildings', {
+                credentials: 'include'
+            });
+            const buildings = await res.json();
+
+            const container = document.getElementById('buildings');
+
+            buildings.forEach(b => {
+                const el = document.createElement('div');
+                el.innerHTML = `
+        <div class="building-card">
+          <h3>${b.name}</h3>
+          <p>${b.address || ''}</p>
+          <a href="/building.html?id=${b.id}">Open</a>
+        </div>
+      `;
+                container.appendChild(el);
+            });
+        }
+
+        loadBuildings();
+    </script>
+
 </head>
 
 <body>
@@ -63,7 +88,7 @@
                 <div>
                     <h3>Allen High School</h3>
                     <p style="margin-bottom: 50px;">AISD / 300 Rivercrest Blvd, Allen, TX 75002 </p>
-                    
+
                     <p><b>Avg CO₂ Today:</b></p>
                     <p>1289 ppm</p>
                     <p><b>Avg TVOC Today:</b></p>
