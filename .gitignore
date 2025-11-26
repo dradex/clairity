@@ -1,0 +1,15 @@
+attached_assets/
+
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+
+
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.webp
+*.ico
